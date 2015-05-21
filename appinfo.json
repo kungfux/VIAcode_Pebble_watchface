@@ -1,0 +1,26 @@
+{
+    "appKeys": {},
+    "capabilities": [
+        ""
+    ],
+    "companyName": "kungfux2010@gmail.com",
+    "longName": "VIAcode",
+    "projectType": "native",
+    "resources": {
+        "media": [
+            {
+                "file": "images/VIAcode-ConvertImage.png",
+                "name": "IMAGE_LOGO",
+                "type": "png"
+            }
+        ]
+    },
+    "sdkVersion": "2",
+    "shortName": "VIAcode",
+    "uuid": "1fb804a7-0106-476b-864c-8bbc0759a48d",
+    "versionCode": 1,
+    "versionLabel": "1.0",
+    "watchapp": {
+        "watchface": true
+    }
+}
