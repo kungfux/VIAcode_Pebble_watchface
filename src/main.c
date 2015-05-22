@@ -1,12 +1,14 @@
 #include <pebble.h>
+#include <theme.h>
 
+// Screen size 144x168
+  
 static Window *s_main_window;
 static TextLayer *s_time_layer;
 static TextLayer *s_text_layer;
 
 static BitmapLayer *s_logo_layer;
 static GBitmap *s_logo_bitmap;
-//
 
 static void update_time() {
   // Time structure
@@ -27,21 +29,21 @@ static void update_time() {
   text_layer_set_text(s_time_layer, buffer);
 }
  
-static void main_window_load(Window *window) {
+static void main_window_load(Window *window) { 
   // GBitmap for logo
-  s_logo_bitmap = gbitmap_create_with_resource(RESOURCE_ID_IMAGE_LOGO);
+  s_logo_bitmap = gbitmap_create_with_resource(getLogo());
   s_logo_layer = bitmap_layer_create(GRect(3, 3, 144, 66));
   bitmap_layer_set_bitmap(s_logo_layer, s_logo_bitmap);
   
   // TextLayers
   s_text_layer = text_layer_create(GRect(0, 66, 144, 120));
-  text_layer_set_background_color(s_text_layer, GColorClear);
-  text_layer_set_text_color(s_text_layer, GColorBlack);
+  text_layer_set_background_color(s_text_layer, getBackColor());
+  text_layer_set_text_color(s_text_layer, getForeColor());
   text_layer_set_text(s_text_layer, "VIAcode");
   
   s_time_layer = text_layer_create(GRect(0, 115, 144, 168));
-  text_layer_set_background_color(s_time_layer, GColorClear);
-  text_layer_set_text_color(s_time_layer, GColorBlack);
+  text_layer_set_background_color(s_time_layer, getBackColor());
+  text_layer_set_text_color(s_time_layer, getForeColor());
   text_layer_set_text(s_time_layer, "00:00");
  
   // FONT_KEY_BITHAM_42_BOLD
@@ -74,6 +76,7 @@ static void tick_handler(struct tm *tick_time, TimeUnits units_changed) {
 static void init() {
   s_main_window = window_create();
  
+  window_set_background_color(s_main_window, getBackColor());
   window_set_window_handlers(s_main_window, (WindowHandlers) {
     .load = main_window_load,
     .unload = main_window_unload

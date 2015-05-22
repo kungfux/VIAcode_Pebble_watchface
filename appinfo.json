@@ -1,7 +1,7 @@
 {
     "appKeys": {},
     "capabilities": [
-        ""
+        "configurable"
     ],
     "companyName": "kungfux2010@gmail.com",
     "longName": "VIAcode",
@@ -9,8 +9,13 @@
     "resources": {
         "media": [
             {
-                "file": "images/VIAcode-ConvertImage.png",
-                "name": "IMAGE_LOGO",
+                "file": "images/VIAcode-Black.png",
+                "name": "IMAGE_LOGO_BLACK",
+                "type": "png"
+            },
+            {
+                "file": "images/VIAcode-White.png",
+                "name": "IMAGE_LOGO_WHITE",
                 "type": "png"
             }
         ]
