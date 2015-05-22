@@ -9,13 +9,8 @@
     "resources": {
         "media": [
             {
-                "file": "images/VIAcode-Black.png",
-                "name": "IMAGE_LOGO_BLACK",
-                "type": "png"
-            },
-            {
                 "file": "images/VIAcode-White.png",
-                "name": "IMAGE_LOGO_WHITE",
+                "name": "IMAGE_LOGO",
                 "type": "png"
             }
         ]
