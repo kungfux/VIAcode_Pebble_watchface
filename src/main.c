@@ -27,6 +27,18 @@ static void update_time() {
   // display TextLayer
   text_layer_set_text(s_time_layer, buffer);
 }
+
+static void show_date_callback(void *data) {
+  update_time();
+}
+
+static void tap_handler(AccelAxisType axis, int32_t direction) {
+  static char date_buffer[] = "02/20";
+  time_t temp = time(NULL); 
+  strftime(date_buffer, sizeof("02/20"), "%m/%d", localtime(&temp));
+  text_layer_set_text(s_time_layer, date_buffer);
+  app_timer_register(2000, show_date_callback, NULL);
+}
  
 static void main_window_load(Window *window) { 
   // GBitmap for logo
@@ -74,6 +86,7 @@ static void main_window_unload(Window *window) {
   gbitmap_destroy(s_logo_bitmap);
   bitmap_layer_destroy(s_logo_layer);
   inverter_layer_destroy(s_invert_layer);
+  accel_tap_service_unsubscribe();
 }
  
 static void tick_handler(struct tm *tick_time, TimeUnits units_changed) {
@@ -92,6 +105,7 @@ static void init() {
   window_stack_push(s_main_window, true);
   
   tick_timer_service_subscribe(MINUTE_UNIT, tick_handler);
+  accel_tap_service_subscribe(tap_handler);
 }
  
 static void deinit() {
