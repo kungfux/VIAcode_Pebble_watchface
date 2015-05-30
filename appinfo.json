@@ -9,6 +9,12 @@
     "resources": {
         "media": [
             {
+                "file": "images/Preview28.png",
+                "menuIcon": true,
+                "name": "IMAGE_PREVIEW",
+                "type": "png"
+            },
+            {
                 "file": "images/VIAcode-White.png",
                 "name": "IMAGE_LOGO",
                 "type": "png"

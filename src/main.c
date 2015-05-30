@@ -40,7 +40,7 @@ static void tap_handler(AccelAxisType axis, int32_t direction) {
   text_layer_set_text(s_time_layer, date_buffer);
   app_timer_register(2000, show_date_callback, NULL);
 }
- 
+
 // prepare all layers and window
 static void main_window_load(Window *window) { 
   // logo
@@ -109,8 +109,9 @@ static void init() {
   });
  
   window_stack_push(s_main_window, true);
-  
+  // subscribe for time change every 1 minute
   tick_timer_service_subscribe(MINUTE_UNIT, tick_handler);
+  // subscribe for tap to display date by jog
   accel_tap_service_subscribe(tap_handler);
 }
  
